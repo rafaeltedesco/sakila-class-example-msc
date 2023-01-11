@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    ports:
+      - 33060:3306
+    env_file:
+      - .docker-env
+    restart: always
+    volumes:
+      - ./dump/:/docker-entrypoint-initdb.d/
