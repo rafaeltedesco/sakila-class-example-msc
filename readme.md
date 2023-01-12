@@ -1,4 +1,4 @@
-### Exemplo de Implementação MSC do Zero
+### Exemplo de Implementação MSC do Zero Simplificado
 
 ---
 
