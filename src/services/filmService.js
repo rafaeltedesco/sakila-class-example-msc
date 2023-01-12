@@ -1,5 +1,5 @@
-const { customerHelper } = require('../helpers');
 const { filmModel, customerModel } = require('../models');
+const { customerValidator } = require('./validations');
 
 const getFilmByFilmId = async (filmId, customerId) => {
   /* Apenas clientes cadastrados podem visualizar */
@@ -7,7 +7,7 @@ const getFilmByFilmId = async (filmId, customerId) => {
   if (!customer)
     return { type: 'CUSTOMER_NOT_FOUND', message: 'customer id not found' };
   /* Apenas clientes ativos podem visualizar filmes por ID */
-  const isCustomerActive = customerHelper.isCustomerActive(customer)
+  const isCustomerActive = customerValidator.isCustomerActive(customer)
   if (!isCustomerActive) return {type: 'CUSTOMER_NOT_ACTIVE', message: 'customer not active'}
 
   const film = await filmModel.getFilmByFilmId(filmId);
