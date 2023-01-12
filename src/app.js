@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const { actorModel, filmModel, customerModel } = require('./models');
+const { actorModel, customerModel } = require('./models');
 const { filmService } = require('./services');
 
 
