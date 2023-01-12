@@ -4,7 +4,7 @@ services:
   db:
     image: mysql
     ports:
-      - 33060:3306
+      - 33061:3306
     env_file:
       - .docker-env
     restart: always
