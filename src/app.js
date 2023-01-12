@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const { actorModel, filmModel, customerModel } = require('./models');
+const { filmService } = require('./services');
+
 
 
 const app = express();
@@ -15,7 +17,8 @@ app.get('/actors', async (req, res) => {
 
 app.get('/film/:id', async (req, res) => {
   const { params: { id }} = req
-  const film = await filmModel.getFilmByFilmId(id)
+  const { headers: {customerid: customerId}} = req
+  const film = await filmService.getFilmByFilmId(id, customerId)
   res.status(200).json(film)
 })
 
